@@ -21,7 +21,7 @@ def run_ffmpeg_cmd(args):
     os.makedirs(dirname)
 
     frame = "%s-%%03d.png" % basename
-    cmd = "ffmpeg -i %s -ss %s -t %s -r %s %s/%s" % (args.input, args.start, args.duration, args.rate, dirname, frame)
+    cmd = "ffmpeg -ss %s -i %s -t %s -r %s %s/%s" % (args.start, args.input, args.duration, args.rate, dirname, frame)
     print "Run command: [%s]" % cmd
     subprocess.call(cmd, shell=True)
     return (dirname, frame)
